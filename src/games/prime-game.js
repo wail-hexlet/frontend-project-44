@@ -4,25 +4,18 @@ import {
 } from '../index.js';
 
 function getCorrectAnswer(question) {
-  let answer;
-  switch (question) {
-    case 1:
-      answer = 'no';
-      break;
-    case 2:
-      answer = 'yes';
-      break;
-    default:
-      for (let x = 2; x < question; x += 1) {
-        if (question % x === 0) {
-          answer = 'no';
-          break;
-        }
-      }
-      answer = 'yes';
-      break;
+  if (question === 1) {
+    return 'no';
   }
-  return answer;
+  if (question === 2) {
+    return 'yes';
+  }
+  for (let i = 2; i < question; i += 1) {
+    if (question % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
 }
 
 export default function executeGame() {
