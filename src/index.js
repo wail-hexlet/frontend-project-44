@@ -15,7 +15,7 @@ export function getRandomNumber(max = maxRandomNumber, min = 1) {
 export function getUserName() {
   console.log('Welcome to the Brain Games!');
   global.UserName = getUserInput('May I have your name? ');
-  console.log(`Hello ${global.UserName}!`);
+  console.log(`Hello, ${global.UserName}!`);
 }
 
 export function getAndCheckAnswer(question, correctAnswer, questionNumber) {
