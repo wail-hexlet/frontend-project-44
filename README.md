@@ -8,5 +8,8 @@
 <a href="https://asciinema.org/a/vAq41CG8eWV6DG8nxhAUHhkYH">ASCIINEMA video for brain-calc</a>
 <br/>
 <a href="https://asciinema.org/a/vEQrRnV12gxVrEmi36H45PdCC">ASCIINEMA video for brain-gcd</a>
+<br/>
+<a href="https://asciinema.org/a/M3jLn5TiO6OW7A3Vlz7IAzSVg">ASCIINEMA video for brain-progression</a>
+
 
 

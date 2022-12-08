@@ -2,14 +2,14 @@
 import readlineSync from 'readline-sync';
 
 global.questionsNumber = 3;
-const maxRandomNumber = 100;
+const maxRandomNumber = 100; // less than it and not equal
 
 export function getUserInput(question) {
   return readlineSync.question(question);
 }
 
-export function getRandomNumber(max = maxRandomNumber) {
-  return Math.floor(Math.random() * max);
+export function getRandomNumber(max = maxRandomNumber, min = 0) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 export function getUserName() {
