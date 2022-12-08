@@ -8,7 +8,7 @@ export function getUserInput(question) {
   return readlineSync.question(question);
 }
 
-export function getRandomNumber(max = maxRandomNumber, min = 0) {
+export function getRandomNumber(max = maxRandomNumber, min = 1) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
