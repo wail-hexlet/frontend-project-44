@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer,
+  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
 } from '../index.js';
+
+const { questionsNumber } = global;
 
 function getCalcQuestion() {
   const arr = [' + ', ' - ', ' * '];
@@ -27,16 +29,12 @@ function getCorrectAnswer(question) {
   return answer.toString();
 }
 
-export default function calcGame() {
-  let { questionsNumber } = global;
+export default function executeGame() {
   console.log('What is the result of the expression?');
-  while (questionsNumber > 0) {
+  for (let i = 0; i < questionsNumber; i += 1) {
     const question = getCalcQuestion();
     const correctAnswer = getCorrectAnswer(question);
     if (!getAndCheckAnswer(question, correctAnswer)) { break; }
-    questionsNumber -= 1;
-    if (questionsNumber === 0) {
-      console.log(`Congratulations, ${global.UserName}!`);
-    }
+    checkIfEndGame(questionsNumber);
   }
 }

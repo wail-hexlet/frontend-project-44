@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer,
+  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
 } from '../index.js';
+
+const { questionsNumber } = global;
 
 function getCalcQuestion() {
   return `${getRandomNumber()} ${getRandomNumber()} `;
@@ -15,7 +17,7 @@ function calculateNOD(left, right) {
   return Math.abs(left);
 }
 
-function getCorrectAnswer(question) {
+function getCorrectCalcAnswer(question) {
   let answer = 0;
   const arr = question.split(' ');
   const leftInt = parseInt(arr[0], 10);
@@ -25,15 +27,10 @@ function getCorrectAnswer(question) {
 }
 
 export default function executeGame() {
-  let { questionsNumber } = global;
   console.log('Find the greatest common divisor of given numbers.');
-  while (questionsNumber > 0) {
-    const question = getCalcQuestion();
-    const correctAnswer = getCorrectAnswer(question);
-    if (!getAndCheckAnswer(question, correctAnswer)) { break; }
-    questionsNumber -= 1;
-    if (questionsNumber === 0) {
-      console.log(`Congratulations, ${global.UserName}!`);
-    }
+  for (let i = 0; i < questionsNumber; i += 1) {
+    const questionCalc = getCalcQuestion();
+    if (!getAndCheckAnswer(questionCalc, getCorrectCalcAnswer(questionCalc))) { break; }
+    checkIfEndGame(questionsNumber);
   }
 }

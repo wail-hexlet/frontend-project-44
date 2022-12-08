@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer,
+  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
 } from '../index.js';
+
+const { questionsNumber } = global;
 
 function getCorrectAnswer(question) {
   if (question % 2 === 0) {
@@ -11,15 +13,10 @@ function getCorrectAnswer(question) {
 }
 
 export default function executeGame() {
-  let { questionsNumber } = global;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  while (questionsNumber > 0) {
-    const question = getRandomNumber();
-    const correctAnswer = getCorrectAnswer(question);
-    if (!getAndCheckAnswer(question, correctAnswer)) { break; }
-    questionsNumber -= 1;
-    if (questionsNumber === 0) {
-      console.log(`Congratulations, ${global.UserName}!`);
-    }
+  for (let i = 0; i < questionsNumber; i += 1) {
+    const questionEven = getRandomNumber();
+    if (!getAndCheckAnswer(questionEven, getCorrectAnswer(questionEven))) { break; }
+    checkIfEndGame(questionsNumber);
   }
 }

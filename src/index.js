@@ -32,4 +32,10 @@ export function getAndCheckAnswer(question, correctAnswer) {
   return rightAnswer;
 }
 
+export function checkIfEndGame(questionNumber) {
+  if (questionNumber === 0) {
+    console.log(`Congratulations, ${global.UserName}!`);
+  }
+}
+
 getUserName();

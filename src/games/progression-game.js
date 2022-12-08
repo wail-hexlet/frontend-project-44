@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer,
+  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
 } from '../index.js';
+
+const { questionsNumber } = global;
 
 let correctAnswer = '';
 
@@ -24,14 +26,9 @@ function getCalcQuestion() {
 }
 
 export default function executeGame() {
-  let { questionsNumber } = global;
   console.log('What number is missing in the progression?');
-  while (questionsNumber > 0) {
-    const question = getCalcQuestion();
-    if (!getAndCheckAnswer(question, correctAnswer)) { break; }
-    questionsNumber -= 1;
-    if (questionsNumber === 0) {
-      console.log(`Congratulations, ${global.UserName}!`);
-    }
+  for (let i = 0; i < questionsNumber; i += 1) {
+    if (!getAndCheckAnswer(getCalcQuestion(), correctAnswer)) { break; }
+    checkIfEndGame(questionsNumber);
   }
 }

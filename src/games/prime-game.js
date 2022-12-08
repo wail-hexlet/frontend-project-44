@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer,
+  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
 } from '../index.js';
+
+const { questionsNumber } = global;
 
 function getCorrectAnswer(question) {
   if (question === 1) {
@@ -19,15 +21,11 @@ function getCorrectAnswer(question) {
 }
 
 export default function executeGame() {
-  let { questionsNumber } = global;
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  while (questionsNumber > 0) {
+  for (let i = 0; i < questionsNumber; i += 1) {
     const question = getRandomNumber();
     const correctAnswer = getCorrectAnswer(question);
     if (!getAndCheckAnswer(question, correctAnswer)) { break; }
-    questionsNumber -= 1;
-    if (questionsNumber === 0) {
-      console.log(`Congratulations, ${global.UserName}!`);
-    }
+    checkIfEndGame(questionsNumber);
   }
 }
