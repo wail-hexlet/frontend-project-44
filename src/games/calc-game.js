@@ -3,8 +3,6 @@ import {
   getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
-const { questionsNumber } = global;
-
 function getCalcQuestion() {
   const arr = [' + ', ' - ', ' * '];
   return getRandomNumber() + arr[getRandomNumber(2)] + getRandomNumber();
@@ -31,7 +29,7 @@ function getCorrectCalcAnswer(question) {
 
 export default function executeCalc() {
   console.log('What is the result of the expression?');
-  for (let i = 0; i < questionsNumber; i += 1) {
+  for (let i = 0; i < global.questionsNumber; i += 1) {
     const questionCalc = getCalcQuestion();
     if (!getAndCheckAnswer(questionCalc, getCorrectCalcAnswer(questionCalc), i)) {
       break;

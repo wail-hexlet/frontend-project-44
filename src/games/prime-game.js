@@ -3,8 +3,6 @@ import {
   getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
-const { questionsNumber } = global;
-
 function getCorrectPrimeAnswer(question) {
   if (question === 1) {
     return 'no';
@@ -22,7 +20,7 @@ function getCorrectPrimeAnswer(question) {
 
 export default function executePrime() {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 0; i < questionsNumber; i += 1) {
+  for (let i = 0; i < global.questionsNumber; i += 1) {
     const questionPrime = getRandomNumber();
     if (!getAndCheckAnswer(questionPrime, getCorrectPrimeAnswer(questionPrime), i)) {
       break;

@@ -3,8 +3,6 @@ import {
   getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
-const { questionsNumber } = global;
-
 let correctProgressionAnswer = '';
 
 function getProgressionQuestion() {
@@ -27,7 +25,7 @@ function getProgressionQuestion() {
 
 export default function executeProgression() {
   console.log('What number is missing in the progression?');
-  for (let i = 0; i < questionsNumber; i += 1) {
+  for (let i = 0; i < global.questionsNumber; i += 1) {
     if (!getAndCheckAnswer(getProgressionQuestion(), correctProgressionAnswer, i)) {
       break;
     }

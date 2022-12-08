@@ -3,8 +3,6 @@ import {
   getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
-const { questionsNumber } = global;
-
 function getGcdQuestion() {
   return `${getRandomNumber()} ${getRandomNumber()} `;
 }
@@ -28,7 +26,7 @@ function getCorrectGcdAnswer(question) {
 
 export default function executeGcd() {
   console.log('Find the greatest common divisor of given numbers.');
-  for (let i = 0; i < questionsNumber; i += 1) {
+  for (let i = 0; i < global.questionsNumber; i += 1) {
     const questionGcd = getGcdQuestion();
     if (!getAndCheckAnswer(questionGcd, getCorrectGcdAnswer(questionGcd), i)) {
       break;
