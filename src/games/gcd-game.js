@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
+  getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
 const { questionsNumber } = global;
@@ -30,7 +30,8 @@ export default function executeGcd() {
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < questionsNumber; i += 1) {
     const questionGcd = getGcdQuestion();
-    if (!getAndCheckAnswer(questionGcd, getCorrectGcdAnswer(questionGcd))) { break; }
-    checkIfEndGame(questionsNumber);
+    if (!getAndCheckAnswer(questionGcd, getCorrectGcdAnswer(questionGcd), i)) {
+      break;
+    }
   }
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
+  getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
 const { questionsNumber } = global;
@@ -33,7 +33,8 @@ export default function executeCalc() {
   console.log('What is the result of the expression?');
   for (let i = 0; i < questionsNumber; i += 1) {
     const questionCalc = getCalcQuestion();
-    if (!getAndCheckAnswer(questionCalc, getCorrectCalcAnswer(questionCalc))) { break; }
-    checkIfEndGame(questionsNumber);
+    if (!getAndCheckAnswer(questionCalc, getCorrectCalcAnswer(questionCalc), i)) {
+      break;
+    }
   }
 }

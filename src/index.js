@@ -18,24 +18,21 @@ export function getUserName() {
   console.log(`Hello ${global.UserName}!`);
 }
 
-export function getAndCheckAnswer(question, correctAnswer) {
+export function getAndCheckAnswer(question, correctAnswer, questionNumber) {
   let rightAnswer = false;
   console.log(`Question: ${question}`);
   const userAnswer = getUserInput('Your answer: ');
   if (correctAnswer === userAnswer) {
     console.log('Correct!');
     rightAnswer = true;
+    if (questionNumber === global.questionsNumber - 1) {
+      console.log(`Congratulations, ${global.UserName}!`);
+    }
   } else {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
     console.log(`Let's try again, ${global.UserName}!`);
   }
   return rightAnswer;
-}
-
-export function checkIfEndGame(questionNumber) {
-  if (questionNumber === 0) {
-    console.log(`Congratulations, ${global.UserName}!`);
-  }
 }
 
 getUserName();

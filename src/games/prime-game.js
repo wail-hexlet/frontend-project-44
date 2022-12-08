@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {
-  getRandomNumber, getAndCheckAnswer, checkIfEndGame,
+  getRandomNumber, getAndCheckAnswer,
 } from '../index.js';
 
 const { questionsNumber } = global;
@@ -24,7 +24,8 @@ export default function executePrime() {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 0; i < questionsNumber; i += 1) {
     const questionPrime = getRandomNumber();
-    if (!getAndCheckAnswer(questionPrime, getCorrectPrimeAnswer(questionPrime))) { break; }
-    checkIfEndGame(questionsNumber);
+    if (!getAndCheckAnswer(questionPrime, getCorrectPrimeAnswer(questionPrime), i)) {
+      break;
+    }
   }
 }
