@@ -5,18 +5,22 @@ import {
 
 function getCorrectAnswer(question) {
   let answer = '';
-  if (question === 1) {
-    answer = 'no';
-  } else if (question === 2) {
-    answer = 'yes';
-  } else {
-    for (let x = 2; x < question; x += 1) {
-      if (question % x === 0) {
-        answer = 'no';
-        return answer;
+  switch (question) {
+    case 1:
+      answer = 'no';
+      break;
+    case 2:
+      answer = 'yes';
+      break;
+    default:
+      for (let x = 2; x < question; x += 1) {
+        if (question % x === 0) {
+          answer = 'no';
+          break;
+        }
       }
-    }
-    answer = 'yes';
+      answer = 'yes';
+      break;
   }
   return answer;
 }

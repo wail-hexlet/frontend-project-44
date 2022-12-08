@@ -12,7 +12,3 @@
 <a href="https://asciinema.org/a/M3jLn5TiO6OW7A3Vlz7IAzSVg">ASCIINEMA video for brain-progression</a>
 <br/>
 <a href="https://asciinema.org/a/1G4bjGDjtJObsHq566iUXZSrE">ASCIINEMA video for brain-prime</a>
-
-
-
-

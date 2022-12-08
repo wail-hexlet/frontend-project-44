@@ -10,9 +10,7 @@ function getCalcQuestion() {
   let progressionValue = getRandomNumber(20, 1);
   const progressionStep = getRandomNumber(20, 1);
   const indexOfMissingValue = getRandomNumber(9);
-  let i = 0;
-  for (;;) {
-    if (i > 9) break;
+  for (let i = 0; i < 10; i += 1) {
     if (i === indexOfMissingValue) {
       progressionValue += progressionStep;
       correctAnswer = progressionValue.toString();
@@ -21,7 +19,6 @@ function getCalcQuestion() {
       progressionValue += progressionStep;
       question += ` ${progressionValue} `;
     }
-    i += 1;
   }
   return question.trim();
 }
