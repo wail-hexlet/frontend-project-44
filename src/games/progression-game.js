@@ -14,10 +14,10 @@ function getProgressionQuestion() {
     if (i === indexOfMissingValue) {
       progressionValue += progressionStep;
       correctProgressionAnswer = progressionValue.toString();
-      question += ' .. ';
+      question += ' ..';
     } else {
       progressionValue += progressionStep;
-      question += ` ${progressionValue} `;
+      question += ` ${progressionValue}`;
     }
   }
   return question.trim();
