@@ -10,7 +10,7 @@ function getCorrectAnswer(question) {
   return 'no';
 }
 
-export default function evenGame() {
+export default function executeGame() {
   let { questionsNumber } = global;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   while (questionsNumber > 0) {
