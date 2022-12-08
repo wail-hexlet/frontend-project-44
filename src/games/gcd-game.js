@@ -5,7 +5,7 @@ import {
 
 const { questionsNumber } = global;
 
-function getCalcQuestion() {
+function getGcdQuestion() {
   return `${getRandomNumber()} ${getRandomNumber()} `;
 }
 
@@ -17,7 +17,7 @@ function calculateNOD(left, right) {
   return Math.abs(left);
 }
 
-function getCorrectCalcAnswer(question) {
+function getCorrectGcdAnswer(question) {
   let answer = 0;
   const arr = question.split(' ');
   const leftInt = parseInt(arr[0], 10);
@@ -26,11 +26,11 @@ function getCorrectCalcAnswer(question) {
   return answer.toString();
 }
 
-export default function executeGame() {
+export default function executeGcd() {
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < questionsNumber; i += 1) {
-    const questionCalc = getCalcQuestion();
-    if (!getAndCheckAnswer(questionCalc, getCorrectCalcAnswer(questionCalc))) { break; }
+    const questionGcd = getGcdQuestion();
+    if (!getAndCheckAnswer(questionGcd, getCorrectGcdAnswer(questionGcd))) { break; }
     checkIfEndGame(questionsNumber);
   }
 }

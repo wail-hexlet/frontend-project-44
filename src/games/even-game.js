@@ -5,7 +5,7 @@ import {
 
 const { questionsNumber } = global;
 
-function getCorrectAnswer(question) {
+function getCorrectEvenAnswer(question) {
   if (question % 2 === 0) {
     return 'yes';
   }
@@ -16,7 +16,7 @@ export default function executeGame() {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < questionsNumber; i += 1) {
     const questionEven = getRandomNumber();
-    if (!getAndCheckAnswer(questionEven, getCorrectAnswer(questionEven))) { break; }
+    if (!getAndCheckAnswer(questionEven, getCorrectEvenAnswer(questionEven))) { break; }
     checkIfEndGame(questionsNumber);
   }
 }

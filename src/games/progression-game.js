@@ -5,9 +5,9 @@ import {
 
 const { questionsNumber } = global;
 
-let correctAnswer = '';
+let correctProgressionAnswer = '';
 
-function getCalcQuestion() {
+function getProgressionQuestion() {
   let question = '';
   let progressionValue = getRandomNumber(20, 1);
   const progressionStep = getRandomNumber(20, 1);
@@ -15,7 +15,7 @@ function getCalcQuestion() {
   for (let i = 0; i < 10; i += 1) {
     if (i === indexOfMissingValue) {
       progressionValue += progressionStep;
-      correctAnswer = progressionValue.toString();
+      correctProgressionAnswer = progressionValue.toString();
       question += ' .. ';
     } else {
       progressionValue += progressionStep;
@@ -25,10 +25,10 @@ function getCalcQuestion() {
   return question.trim();
 }
 
-export default function executeGame() {
+export default function executeProgression() {
   console.log('What number is missing in the progression?');
   for (let i = 0; i < questionsNumber; i += 1) {
-    if (!getAndCheckAnswer(getCalcQuestion(), correctAnswer)) { break; }
+    if (!getAndCheckAnswer(getProgressionQuestion(), correctProgressionAnswer)) { break; }
     checkIfEndGame(questionsNumber);
   }
 }

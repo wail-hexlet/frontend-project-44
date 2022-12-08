@@ -9,7 +9,7 @@ function getCalcQuestion() {
   const arr = [' + ', ' - ', ' * '];
   return getRandomNumber() + arr[getRandomNumber(2)] + getRandomNumber();
 }
-function getCorrectAnswer(question) {
+function getCorrectCalcAnswer(question) {
   let answer = 0;
   const arr = question.split(' ');
   const operation = arr[1];
@@ -29,12 +29,11 @@ function getCorrectAnswer(question) {
   return answer.toString();
 }
 
-export default function executeGame() {
+export default function executeCalc() {
   console.log('What is the result of the expression?');
   for (let i = 0; i < questionsNumber; i += 1) {
-    const question = getCalcQuestion();
-    const correctAnswer = getCorrectAnswer(question);
-    if (!getAndCheckAnswer(question, correctAnswer)) { break; }
+    const questionCalc = getCalcQuestion();
+    if (!getAndCheckAnswer(questionCalc, getCorrectCalcAnswer(questionCalc))) { break; }
     checkIfEndGame(questionsNumber);
   }
 }
