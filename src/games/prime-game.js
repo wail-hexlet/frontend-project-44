@@ -4,7 +4,7 @@ import {
 } from '../index.js';
 
 function getCorrectAnswer(question) {
-  let answer = '';
+  let answer;
   switch (question) {
     case 1:
       answer = 'no';
